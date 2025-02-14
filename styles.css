@@ -1,150 +1,161 @@
-/* Dark Minimal Theme */
 :root {
-    --bg-color: #121212;
-    --card-bg: #1e1e1e;
-    --text-color: #e0e0e0;
-    --accent: #ff6b81;
-    --green: #4caf50;
-    --blue: #4a90e2;
-    --yellow: #ffc107;
+    --bg-color: #000000;
+    --card-bg: #121212;
+    --text-color: #ffffff;
+    --accent: #ffffff;
+    --border-color: #333333;
     --transition: all 0.3s ease-in-out;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     text-align: center;
     margin: 0;
     padding: 0;
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 450px;
+    max-width: 500px;
     margin: 5vh auto;
     background: var(--card-bg);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     animation: fadeIn 0.5s ease-in-out;
+;
+}
+form{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    
+}
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 700;
 }
 
 /* Input Fields */
 input, select, button {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: none;
-    outline: none;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 5px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-color);
+    font-size: 1rem;
     transition: var(--transition);
 }
+input,select{
+    align-self: center;
+}
 
-input, select {
-    background: #252525;
-    color: var(--text-color);
+input:focus, select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
 }
 
 select {
     cursor: pointer;
     appearance: none;
-    padding-right: 25px;
-    background: #252525 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
-    background-size: 15px;
+    padding-right: 30px;
+    background: var(--card-bg) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    background-size: 20px;
 }
-
-/* Task Category Colors */
-.task[data-category="Work"] { border-left: 5px solid var(--blue); }
-.task[data-category="Personal"] { border-left: 5px solid var(--green); }
-.task[data-category="Urgent"] { border-left: 5px solid var(--yellow); }
-.task[data-category="Other"] { border-left: 5px solid var(--accent); }
 
 /* Buttons */
 button {
     background: var(--accent);
-    color: white;
-    font-weight: bold;
+    color: var(--bg-color);
+    font-weight: 600;
     cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 button:hover {
-    background: #e63950;
+    opacity: 0.9;
+    transform: translateY(-2px);
 }
 
-/* Ensure the task list is visible */
+/* Task list */
 #taskList {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin-top: 30px;
 }
 
-/* Styling for individual tasks */
 .task {
-    background: #252525;
-    padding: 30px;
-    margin: 10px 0;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 430px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    opacity: 1; /* Ensure it's fully visible */
-    transition: opacity 0.3s ease;
-    box-sizing: border-box;
+    background: var(--card-bg);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    transition: var(--transition);
+}
+
+.task:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
 }
 
 .task h3 {
-    margin: 0;
+    margin: 0 0 10px 0;
     font-size: 1.2rem;
 }
 
 .task p {
     margin: 5px 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
 
 .task button {
     background: transparent;
     color: var(--accent);
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 1rem;
+    border: 1px solid var(--accent);
+    padding: 5px 10px;
+    margin-right: 10px;
+    font-size: 0.8rem;
+    border-radius: 4px;
 }
 
 .task button:hover {
-    background-color: var(--accent);
-    color: white;
-}
-
-.task .complete-btn {
-    color: var(--green);
-}
-
-.task .delete-btn {
-    color: var(--accent);
+    background: var(--accent);
+    color: var(--bg-color);
 }
 
 /* Filter Container */
 .filter-container {
-    margin: 15px 0;
+    margin: 20px 0;
+    text-align: left;
 }
 
 .filter-container label {
-    font-size: 14px;
+    font-size: 0.9rem;
     margin-right: 10px;
 }
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
+    from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
 }
